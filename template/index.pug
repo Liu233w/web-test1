@@ -1,0 +1,15 @@
+doctype html
+head
+  meta(charset="utf-8")
+  title 这是一个主页
+  style
+    li {list-style-type:none;}
+body
+  h1 请选择要查看的文件
+  form(method="post" action="/txt")
+    each a in fileList
+      li
+        input(type="radio" name="files" value=a)
+        =a
+    br
+    input(type="submit" value="提交")
