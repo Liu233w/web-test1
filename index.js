@@ -2,20 +2,14 @@ var express = require("express");
 var fs = require("fs");
 var url = require("url");
 var bodyParser = require("body-parser");
-var pug = require("pug");
-
-var templates = {
-    index: pug.compileFile('template/index.pug'),
-    fileFormat: pug.compileFile('template/file-format.pug'),
-}
 
 function formatIndex(req, res) {
     fs.readdir(__dirname + '/txt/', function(err, files) {
         if (err)
             throw err;
-        res.send(templates.index({
+        res.render('index', {
             fileList: files,
-        }));
+        });
     });
 }
 
@@ -24,10 +18,10 @@ function formatTxt(req, res) {
     fs.readFile(__dirname + '/txt/' + fileName, 'utf-8', function(err, file) {
         if (err)
             throw err;
-        res.send(templates.fileFormat({
+        res.render('file-format', {
             fileName: fileName,
             file: file,
-        }));
+        });
     });
 }
 
@@ -41,6 +35,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+app.set('view engine', 'pug');
 
 app.get('/', formatIndex);
 app.post('/txt', formatTxt);
