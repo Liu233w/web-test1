@@ -42,7 +42,7 @@ app.post('/txt', formatTxt);
 app.get('/txt', noPage);
 app.get('/*', noPage);
 
-var server = app.listen(8888, function() {
+var server = app.listen(process.env.PORT || 5050, function() {
     var host = server.address().address;
     var port = server.address().port;
     console.log('服务器开启于http://%s:%s', host, port);
