@@ -1,0 +1,21 @@
+{
+  "name": "Liu233w Webtest",
+  "description": "getting started with nodejs on sinacloud platform",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Liu233w",
+    "email": "wwwlsmcom@outlook.com"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "body-parser": "^1.15.2",
+    "pug": "^2.0.0",
+  },
+  "engines": {
+    "node": "4.5.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
