@@ -1,1 +1,1 @@
-node index.js
+node run-server.js
