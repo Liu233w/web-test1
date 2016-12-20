@@ -1,21 +1,25 @@
 {
-  "name": "Liu233w Webtest",
-  "description": "getting started with nodejs on sinacloud platform",
+  "name": "web-test1",
   "version": "0.0.1",
-  "private": true,
-  "author": {
-    "name": "Liu233w",
-    "email": "wwwlsmcom@outlook.com"
-  },
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "express": "^4.14.0",
     "body-parser": "^1.15.2",
-    "pug": "^2.0.0"
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta6"
   },
-  "engines": {
-    "node": "4.5.0"
-  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node index.js"
-  }
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liu233w/web-test1.git"
+  },
+  "author": "Liu233w",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/Liu233w/web-test1/issues"
+  },
+  "homepage": "https://github.com/Liu233w/web-test1#readme"
 }
