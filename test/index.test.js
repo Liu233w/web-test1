@@ -10,30 +10,30 @@ function get_404(done){
     }
 }
 
-describe('mysite', function() {
-    describe('index', function(){
-        it('should show index page correctly', function(done){
+describe('站点流程中，', function() {
+    describe('主页', function(){
+        it('应当可以正常显示', function(done){
             request.get('/')
                 .end(function(err, res){
                     should.not.exist(err);
-                    should.exist(res.text);
+                    res.text.should.containEql('这是一个主页');
                     done();
                 })
         })
     })
 
-    describe('txt', function(){
-        it('should show a text if exist', function(done){
+    describe('txt 页面', function(){
+        it('如果存在对应的文本，应该显示出来', function(done){
             request.post('/txt')
                 .send({files: '1.txt'})
                 .expect(200)
                 .end(function(err, res){
                     should.not.exist(err);
-                    res.text.should.not.equal('404');
+                    res.text.should.containEql('123');
                     done();
                 })
         })
-        it('should show 404 when file is not exist', function(done){
+        it('如果文本不存在，应该显示 404 页面', function(done){
             request.post('/txt')
                 .send({files: 'nothing.lol'})
                 .expect(200)
@@ -41,8 +41,8 @@ describe('mysite', function() {
         })
     })
 
-    describe('page not exist', function(){
-        it('should show 404 page', function(done){
+    describe('访问不存在的页面', function(){
+        it('应当显示 404 页面', function(done){
             request.get('/nothing-a-url')
                 .expect(200)
                 .end(get_404(done));
