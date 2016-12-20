@@ -17,11 +17,12 @@ function formatTxt(req, res) {
     var fileName = req.body['files'];
     fs.readFile(__dirname + '/txt/' + fileName, 'utf-8', function(err, file) {
         if (err)
-            throw err;
-        res.render('file-format', {
-            fileName: fileName,
-            file: file,
-        });
+            noPage(req, res);
+        else
+            res.render('file-format', {
+                fileName: fileName,
+                file: file,
+            });
     });
 }
 
